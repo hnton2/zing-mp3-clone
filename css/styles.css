@@ -7,7 +7,7 @@
     --primary-bg: #432275;
     --layout-bg: #170f23;
     --second-bg: #3D3540;
-    --link-text-hover: #c662ef;
+    --second-bg-hover: #332d35;
     --chart-bg-img-alpha: rgba(32,19,53,0.9);
     --text-color: #dadada;
     --text-color-hover: #dbdbdc;
@@ -137,10 +137,117 @@ button {
 }
 
 .nav__form-input:focus {
-    border: none;
+    outline: none;
 }
+
 .submit__button {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
+}
+
+.nav__right {
+    margin-left: 2rem;
+}
+
+.nav__right--item {
+    margin-left: 1rem;
+}
+
+.nav__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--second-bg);
+    border-radius: 50%;
+    transition: .35s ease;
+}
+
+.nav__btn:hover,
+.btn__active {
+    background-color: var(--second-bg-hover);
+}
+
+.nav__icon {
+    color:var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 350;
+}
+
+.nav__user-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.nav__dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav__dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 16rem;
+    margin-top: 0.5rem;
+    background-color: var(--primary-bg);
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: var(--z-tooltip);
+    border-radius: 0.5rem;
+}
+
+.nav__dropdown-container {
+    padding: 0.5rem 1rem .75rem 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .25rem;
+}
+
+.show-nav__dropdown {
+    display: block;
+}
+
+.main-dropdown {
+    border-bottom: 1px solid #a692ad;
+    width: 100%;
+    margin-bottom: var(--mb-0-5);
+}
+
+.footer-dropdown {
+    width: 100%;
+}
+
+.nav__link {
+    position: relative;
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: var(--mb-0-25);
+    padding-left: var(--mb-0-25);
+}
+
+.main-dropdown .nav__link span {
+    margin-left: var(--mb-1-5);
+}
+
+.nav__link:hover {
+    color: var(--text-color-hover);
+    background-color: #563983;
+    border-radius: 0.5rem;
+}
+
+.nav__icon-start {
+    position: absolute;
+    left: var(--mb-0-25);
+}
+
+.nav__icon-end {
+    position: absolute;
+    right: 0;
 }
