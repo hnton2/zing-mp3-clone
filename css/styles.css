@@ -10,7 +10,15 @@
     --second-bg-hover: #332d35;
     --chart-bg-img-alpha: rgba(32,19,53,0.9);
     --text-color: #dadada;
-    --text-color-hover: #dbdbdc;
+    --text-color-hover: #fdfdff;
+    --text-black: #32323d;
+    --sidebar-bg: hsla(0,0%,100%,0.05);
+    --purple-primary: #7200a1;
+    --scroll-bar-color: #23213a;
+    --scroll-thumb-color: #65606D;
+    --blue: #4a90e2;
+    --green: #1ddfb5;
+    --red: #e35050;
 
     /* == FONT AND TYPOGRAPHY == */
     --body-font: 'Inter', sans-serif;
@@ -53,6 +61,7 @@ body {
     font-family: var(--body-font);
     background-color: var(--layout-bg);
     overflow: hidden;
+    color: var(--text-color);
 }
 
 ul {
@@ -91,6 +100,11 @@ button {
 .container {
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
+}
+
+.btn {
+    padding: var(--mb-0-5) var(--mb-1);
+    border-radius: 1rem;
 }
 /* =============================== NAVBAR ======================== */
 .header{
@@ -250,4 +264,189 @@ button {
 .nav__icon-end {
     position: absolute;
     right: 0;
+}
+
+/* =============================== NAVBAR ======================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    height: calc(100vh - 90px);
+    width: 15rem;
+    z-index: var(--z-fixed);
+    background-color: var(--sidebar-bg);
+    -webkit-box-shadow: 5px 4px 20px -10px rgba(0,0,0,0.6); 
+    box-shadow: 5px 4px 20px -10px rgba(0,0,0,0.6);
+}
+
+.sidebar__wrapper {
+    flex-direction: column;
+    align-items: start;
+    gap: .75rem;
+}
+
+.logo {
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+}
+
+.sidebar__content {
+    width: 100%;
+}
+
+.sidebar__main {
+    flex-direction: column;
+    align-items: start;
+    gap: var(--mb-0-5);
+    margin-bottom: var(--mb-1);
+}
+
+.list__item {
+    width: 100%;
+}
+
+.sidebar__link,
+.sidebar__extra-link {
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    color:var(--text-color);
+    font-size: var(--normal-font-size);
+    font-weight: 400;
+}
+
+.sidebar__link > i,
+.sidebar__extra-link > i {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-right: var(--mb-0-5);
+}
+
+.sidebar__link:hover,
+.sidebar__link .active {
+    color: var(--text-color-hover);
+    background: var(--second-bg-hover);
+    border-left: 3px solid var(--purple-primary);
+}
+
+.sidebar__extra-link:hover {
+    color: var(--text-color-hover);
+}
+
+.sidebar__line {
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+    margin-bottom: var(--mb-1);
+    border-top: 1px solid #7b6b81;
+}
+
+.sidebar__extra {
+    overflow-y: scroll;
+    height: 19rem;
+    width: 16rem;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+
+.sidebar__extra::-webkit-scrollbar {
+    width: .25rem;
+    background-color: var(--scroll-bar-color);
+    border-radius: 0.5rem;
+}
+
+.sidebar__extra::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb-color);
+    border-radius: 0.5rem;
+}
+
+.sidebar__extra::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-color-light);
+}
+
+.sidebar__extra-list{
+    flex-direction: column;
+    align-items: start;
+    gap: var(--mb-0-75);
+}
+
+.sidebar__ads {
+    margin: var(--mb-0-5) var(--mb-1) var(--mb-1);
+    border-radius: 0.5rem;
+    background: #4e54c8;
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8); 
+    background: linear-gradient(to right, #8f94fb, #4e54c8);
+}
+.sidebar__ads-container {
+    padding: var(--mb-0-75);
+}
+
+.ads__title {
+    font-size: 0.813rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--mb-1);
+}
+
+.ads__btn {
+    margin-left: 2rem;
+    display: inline-block;
+    background-color: #ffdb00;
+    border-color: #ffdb00;
+    color: var(--text-black);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.sidebar__library {
+    flex-direction: column;
+    align-items: start;
+    gap: .55rem;
+}
+
+.library__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 1.5rem;
+}
+
+.library__icon {
+    border-radius: 0.5rem;
+    padding: var(--mb-0-25);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-red {
+    background-color: var(--red);
+}
+
+.bg-green {
+    background-color: var(--green);
+}
+
+.sidebar__option {
+    position: absolute;
+    bottom: 0;
+    height: 3.75rem;
+    width: 100%;
+    border-top: 1px solid #7b6b81;
+}
+
+.newList-btn {
+    margin-left: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.newList-btn:hover {
+    color: var(--text-color-hover);
 }
