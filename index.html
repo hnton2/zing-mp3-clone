@@ -284,32 +284,32 @@
         <section class="playlist">
             <div class="playlist__menu flex">
                 <ul class="playlist__menu-items flex">
-                    <li class="playlist__menu-item active">
-                        <a href="#" class="playlist__menu-link">TỔNG QUAN</a>
+                    <li class="playlist__menu-item active" data-target="#tong-quan">
+                        <span class="playlist__menu-link">TỔNG QUAN</span>
                     </li>
-                    <li class="playlist__menu-item">
-                        <a href="#" class="playlist__menu-link">BÀI HÁT</a>
+                    <li class="playlist__menu-item" data-target="#bai-hat">
+                        <span class="playlist__menu-link">BÀI HÁT</span>
                     </li>
-                    <li class="playlist__menu-item">
-                        <a href="#" class="playlist__menu-link">PLAYLIST</a>
+                    <li class="playlist__menu-item" data-target="#play-list">
+                        <span class="playlist__menu-link">PLAYLIST</span>
                     </li>
-                    <li class="playlist__menu-item">
-                        <a href="#" class="playlist__menu-link">NGHỆ SĨ</a>
+                    <li class="playlist__menu-item" data-target="#nghe-si">
+                        <span class="playlist__menu-link">NGHỆ SĨ</span>
                     </li>
-                    <li class="playlist__menu-item">
-                        <a href="#" class="playlist__menu-link">ALBUM</a>
+                    <li class="playlist__menu-item" data-target="#album">
+                        <span class="playlist__menu-link">ALBUM</span>
                     </li>
-                    <li class="playlist__menu-item">
-                        <a href="#" class="playlist__menu-link">MV</a>
+                    <li class="playlist__menu-item" data-target="#mv">
+                        <span class="playlist__menu-link">MV</span>
                     </li>
-                    <li class="playlist__menu-item">
-                        <a href="#" class="playlist__menu-link">TẢI LÊN</a>
+                    <li class="playlist__menu-item" data-target="#tai-len">
+                        <span class="playlist__menu-link">TẢI LÊN</span>
                     </li>
                 </ul>
             </div>
             <div class="playlist__content">
                 <!-- =================== TỔNG QUAN ================== -->
-                <div class="playlist__section" id="tong-quan">
+                <div class="playlist__section playlist__active" id="tong-quan" data-content>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
@@ -346,7 +346,7 @@
                                 </div>
                             </div>
                             <div>
-                                <ul class="playlist__songs flex">
+                                <ul class="playlist__songs list__scrollbar flex">
                                     <li class="playlist__song grid">
                                         <div class="playlist__info flex">
                                             <a href="#" class="playlist__img-link">
@@ -603,7 +603,7 @@
                     </div>
                 </div>
                 <!-- =================== BÀI HÁT ================== -->
-                <div class="playlist__section" id="tong-quan" hidden>
+                <div class="playlist__section" id="bai-hat" data-content>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
@@ -877,7 +877,7 @@
                     </div>
                 </div>
                 <!-- =================== PLAY LIST ================== -->
-                <div class="playlist__section" id="tong-quan" hidden>
+                <div class="playlist__section" id="play-list" data-content>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
@@ -904,7 +904,7 @@
                     </div>
                 </div>
                 <!-- =================== NGHỆ SĨ ================== -->
-                <div class="playlist__section" id="tong-quan" hidden>
+                <div class="playlist__section" id="nghe-si" data-content>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
@@ -988,7 +988,7 @@
                     </div>
                 </div>
                 <!-- =================== ALBUM ================== -->
-                <div class="playlist__section" id="album" hidden>
+                <div class="playlist__section" id="album" data-content>
                     <div class="playlist__album">
                         <div class="album-no-content flex">
                             <i class="fas fa-compact-disc no__content-icon"></i>
@@ -999,7 +999,7 @@
                     </div>
                 </div>
                 <!-- =================== MV ================== -->
-                <div class="playlist__section" id="mv" hidden>
+                <div class="playlist__section" id="mv" data-content>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
@@ -1067,7 +1067,7 @@
                     </div>
                 </div>
                 <!-- =================== TẢI LÊN ================== -->
-                <div class="playlist__section" id="album" hidden>
+                <div class="playlist__section" id="tai-len" data-content>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">

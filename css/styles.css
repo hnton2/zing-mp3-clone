@@ -710,6 +710,7 @@ input:checked + .checkbox__slider::before {
 
 .playlist__menu-item {
     margin-right: var(--mb-1-5);
+    cursor: pointer;
 }
 
 .playlist__menu-link {
@@ -731,6 +732,14 @@ input:checked + .checkbox__slider::before {
 .playlist__content {
     margin-top: var(--mb-1-5);
     grid-template-columns: 1fr 8fr;
+}
+
+.playlist__section {
+    display: none;
+}
+
+.playlist__active {
+    display: block;
 }
 
 .playlist__header {
@@ -777,26 +786,29 @@ input:checked + .checkbox__slider::before {
 }
 
 .playlist__songs {
-    height: 230px;
-    overflow-y: auto;
     flex-direction: column;
     align-items: start;
     padding-left: var(--mb-0-5);
     padding-right: var(--mb-0-5);
 }
 
-.playlist__songs::-webkit-scrollbar {
+.list__scrollbar {
+    height: 230px;
+    overflow-y: auto;
+}
+
+.list__scrollbar::-webkit-scrollbar {
     width: .25rem;
     background-color: var(--scroll-bar-color);
     border-radius: 0.5rem;
 }
 
-.playlist__songs::-webkit-scrollbar-thumb {
+.list__scrollbar::-webkit-scrollbar-thumb {
     background-color: var(--scroll-thumb-color);
     border-radius: 0.5rem;
 }
 
-.playlist__songs::-webkit-scrollbar-thumb:hover {
+.list__scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: var(--text-color-light);
 }
 

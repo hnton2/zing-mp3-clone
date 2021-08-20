@@ -25,7 +25,7 @@ var swiper = new Swiper('.swiper', {
     }
 });
 
-// ======================================== SLIDER PLAYLIST ===========================
+// ======================================== ADD NEY PLAYLIST ===========================
 const newListView = document.querySelector('.newList__modal'),
     newListBtn = document.querySelector('.newList-btn'),
     newListCloseBtn = document.querySelector('.newList__form-close')
@@ -36,4 +36,23 @@ newListBtn.addEventListener('click', () => {
 
 newListCloseBtn.addEventListener('click', () => {
     newListView.classList.remove('active__modal')
+})
+
+// ======================================== CHOOSE MENU SECTION ===========================
+const tabs = document.querySelectorAll('[data-target]'),
+    tabContents = document.querySelectorAll('[data-content]')
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.target)
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('playlist__active')
+        })
+        target.classList.add('playlist__active')
+
+        tabs.forEach(tab => {
+            tab.classList.remove('active')
+        })
+        tab.classList.add('active')
+    })
 })
