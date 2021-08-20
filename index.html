@@ -214,10 +214,48 @@
                     </div>
                 </div>
                 <div class="sidebar__option flex">
-                    <a class="newList-btn">
-                        <i class="fas fa-plus"></i>
-                        Tạo playlist mới
-                    </a>
+                    <div>
+                        <button class="newList-btn">
+                            <i class="fas fa-plus"></i>
+                            Tạo playlist mới
+                        </button>
+                    </div>
+                    <div class="newList__modal flex">
+                        <div class="newList__modal-content flex">
+                            <h3 class="newList__form-title">Tạo playlist mới</h3>
+                            <i class="fas fa-times newList__form-close"></i>
+                            <form action="" class="newList__form flex">
+                                <input type="text" class="newList__form-input" placeholder="Nhập tên playlist">
+                                <div class="newList__form-content flex">
+                                    <div class="newList__form-desc flex">
+                                        <label for="" class="newList__form-label">Công khai</label>
+                                        <span class="newList__from-subtitle">
+                                            Mọi người có thể nhìn thấy playlist này
+                                        </span>
+                                    </div>
+                                    <label class="newList__form-switch">
+                                        <input type="checkbox">
+                                        <span class="checkbox__slider"></span>
+                                    </label>
+                                </div>
+                                <div class="newList__form-content flex">
+                                    <div class="newList__form-desc flex">
+                                        <label for="" class="newList__form-label">Phát ngẫu nhiên</label>
+                                        <span class="newList__from-subtitle">
+                                            Luôn phát ngẫu nhiên tất cả bài hát
+                                        </span>
+                                    </div>
+                                    <label class="newList__form-switch">
+                                        <input type="checkbox">
+                                        <span class="checkbox__slider"></span>
+                                    </label>
+                                </div>
+                                <button class="btn bg-yellow newList__form-btn">
+                                    TẠO MỚI
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,7 +309,7 @@
             </div>
             <div class="playlist__content">
                 <!-- =================== TỔNG QUAN ================== -->
-                <div class="playlist__section" id="tong-quan" hidden>
+                <div class="playlist__section" id="tong-quan">
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
@@ -1029,7 +1067,7 @@
                     </div>
                 </div>
                 <!-- =================== TẢI LÊN ================== -->
-                <div class="playlist__section" id="album">
+                <div class="playlist__section" id="album" hidden>
                     <div class="playlist__header flex">
                         <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">

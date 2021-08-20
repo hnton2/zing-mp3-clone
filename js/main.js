@@ -24,3 +24,16 @@ var swiper = new Swiper('.swiper', {
         disableOnInteraction: false,
     }
 });
+
+// ======================================== SLIDER PLAYLIST ===========================
+const newListView = document.querySelector('.newList__modal'),
+    newListBtn = document.querySelector('.newList-btn'),
+    newListCloseBtn = document.querySelector('.newList__form-close')
+
+newListBtn.addEventListener('click', () => {
+    newListView.classList.add('active__modal')
+})
+
+newListCloseBtn.addEventListener('click', () => {
+    newListView.classList.remove('active__modal')
+})
