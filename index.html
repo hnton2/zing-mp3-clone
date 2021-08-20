@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/icon_zing_mp3_60.png">
     <!-- =================================== CSS =================================== -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -106,7 +107,7 @@
                 <div class="nav__right--item">
                     <button class="nav__btn">
                         <img class="nav__user-img"
-                            src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-1/c0.107.320.320a/p320x320/226607716_3147073402179669_7160872180751546257_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=7206a8&_nc_ohc=YDtk2eF4hgMAX-sijIt&_nc_ht=scontent.fdad2-1.fna&oh=d1516acf8a279ad29215b2342b873d3e&oe=61407A98"
+                            src="https://scontent.fdad1-3.fna.fbcdn.net/v/t1.6435-9/c0.0.600.600a/p600x600/178033498_3065602916993385_8067618293864251551_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=174925&_nc_ohc=K_zyZ76oRX0AX-zAKi-&_nc_ht=scontent.fdad1-3.fna&oh=abb3147acbf750aba8ff6d484a3246dc&oe=614398DE"
                             alt="">
                     </button>
                 </div>
@@ -230,7 +231,7 @@
                 <div></div>
                 <div></div>
                 <div class="user__content flex">
-                    <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-1/c0.107.320.320a/p320x320/226607716_3147073402179669_7160872180751546257_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=7206a8&_nc_ohc=YDtk2eF4hgMAX-sijIt&_nc_ht=scontent.fdad2-1.fna&oh=d1516acf8a279ad29215b2342b873d3e&oe=61407A98"
+                    <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t1.6435-9/c0.0.600.600a/p600x600/178033498_3065602916993385_8067618293864251551_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=174925&_nc_ohc=K_zyZ76oRX0AX-zAKi-&_nc_ht=scontent.fdad1-3.fna&oh=abb3147acbf750aba8ff6d484a3246dc&oe=614398DE"
                         alt="" class="user__img">
                     <h1 class="user__title">Ho Ngoc Ton</h1>
                 </div>
@@ -244,34 +245,35 @@
         <!-- =================================== PLAY LIST =================================== -->
         <section class="playlist">
             <div class="playlist__menu flex">
-                <ul class="playlist__items flex">
-                    <li class="playlist__item active">
-                        <a href="#" class="playlist__link">TỔNG QUAN</a>
+                <ul class="playlist__menu-items flex">
+                    <li class="playlist__menu-item active">
+                        <a href="#" class="playlist__menu-link">TỔNG QUAN</a>
                     </li>
-                    <li class="playlist__item">
-                        <a href="#" class="playlist__link">BÀI HÁT</a>
+                    <li class="playlist__menu-item">
+                        <a href="#" class="playlist__menu-link">BÀI HÁT</a>
                     </li>
-                    <li class="playlist__item">
-                        <a href="#" class="playlist__link">PLAYLIST</a>
+                    <li class="playlist__menu-item">
+                        <a href="#" class="playlist__menu-link">PLAYLIST</a>
                     </li>
-                    <li class="playlist__item">
-                        <a href="#" class="playlist__link">NGHỆ SĨ</a>
+                    <li class="playlist__menu-item">
+                        <a href="#" class="playlist__menu-link">NGHỆ SĨ</a>
                     </li>
-                    <li class="playlist__item">
-                        <a href="#" class="playlist__link">ALBUM</a>
+                    <li class="playlist__menu-item">
+                        <a href="#" class="playlist__menu-link">ALBUM</a>
                     </li>
-                    <li class="playlist__item">
-                        <a href="#" class="playlist__link">MV</a>
+                    <li class="playlist__menu-item">
+                        <a href="#" class="playlist__menu-link">MV</a>
                     </li>
-                    <li class="playlist__item">
-                        <a href="#" class="playlist__link">TẢI LÊN</a>
+                    <li class="playlist__menu-item">
+                        <a href="#" class="playlist__menu-link">TẢI LÊN</a>
                     </li>
                 </ul>
             </div>
             <div class="playlist__content">
-                <div class="playlist__tq" id="tong-quan">
+                <!-- =================== TỔNG QUAN ================== -->
+                <div class="playlist__section" id="tong-quan" hidden>
                     <div class="playlist__header flex">
-                        <a href="#" class="playlist__title-link">
+                        <a href="#" class="playlist__header-link">
                             <h2 class="playlist__title">
                                 Bài Hát
                                 <i class="fas fa-chevron-right"></i>
@@ -288,253 +290,759 @@
                             </button>
                         </div>
                     </div>
-                    <div class="playlist__content grid">
-                        <div class="playlist__thumbs swiper">
-                            <div class="swiper-wrapper">
-                                <img src="images/audio_default.png" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-1.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-2.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-3.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-4.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-5.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-6.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-7.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-8.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-9.jpg" alt="" class="playlist__thumb swiper-slide">
-                                <img src="images/song-10.jpg" alt="" class="playlist__thumb swiper-slide">
+                    <div class="playlist__main">
+                        <div class="playlist__overview grid">
+                            <div class="playlist__thumbs swiper">
+                                <div class="swiper-wrapper">
+                                    <img src="images/audio_default.png" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-1.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-2.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-3.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-4.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-5.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-6.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-7.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-8.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-9.jpg" alt="" class="playlist__thumb swiper-slide">
+                                    <img src="images/song-10.jpg" alt="" class="playlist__thumb swiper-slide">
+                                </div>
+                            </div>
+                            <div>
+                                <ul class="playlist__songs flex">
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/audio_default.png" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Hẹn Em Kiếp Sau (Orinn Remix)
+                                                    <i class="fas fa-user-friends"></i>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Lã, Duy Phúc, TIB</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">03:44</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid active">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-1.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Yêu Từ Đâu Mà Ra (Orinn Remix)
+                                                    <i class="fas fa-user-friends"></i>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">LIL ZPOET, Orinn</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">03:43</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-2.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Mỹ Nhân
+                                                    <i class="fas fa-user-friends"></i>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Đinh Đại Vũ, Orinn</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">04:48</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-3.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Chỉ Là Không Cùng Nhau (Live Version)
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Tăng Phúc, Trương Thảo Nhi</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">03:46</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-4.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Còn Gì Đau Hơn Chữ Đã Từng
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Quân A.P</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">05:50</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-5.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Ai Là Người Thương Em
+                                                    <i class="fas fa-user-friends"></i>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Quân A.P</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">05:07</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-6.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Em Ổn Không
+                                                    <i class="fas fa-user-friends"></i>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Trịnh Thiên Ân, ViruSs</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">05:19</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-7.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Chẳng Thể Tìm Được Em
+                                                    <i class="fas fa-user-friends"></i>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">PhucXP, Freak D</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">05:48</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-8.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Mãi Mãi Không Phải Anh
+                                                    <span class="badge">ZMA</span>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Thanh Bình</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">04:33</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-9.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Kẻ Điên Tin Vào Tình Yêu
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Lil Z</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">04:36</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="playlist__song grid">
+                                        <div class="playlist__info flex">
+                                            <a href="#" class="playlist__img-link">
+                                                <img src="images/song-10.jpg" alt="" class="playlist__item-img">
+                                            </a>
+                                            <div class="playlist__desc flex">
+                                                <a href="#" class="playlist__desc-title">
+                                                    Bông Hoa Đẹp Nhất
+                                                    <span class="badge">ZMA</span>
+                                                </a>
+                                                <span class="playlist__desc-subtitle">Quân A.P</span>
+                                            </div>
+                                        </div>
+                                        <span class="playlist__time">05:15</span>
+                                        <div class="playlist__option flex">
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-heart playlist__icon-heart"></i>
+                                            </button>
+                                            <button class="playlist__option-btn">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="playlist__songList">
-                            <ul class="playlist__songs flex">
-                                <li class="playlist__song active grid">
+                    </div>
+                </div>
+                <!-- =================== BÀI HÁT ================== -->
+                <div class="playlist__section" id="tong-quan" hidden>
+                    <div class="playlist__header flex">
+                        <a href="#" class="playlist__header-link">
+                            <h2 class="playlist__title">
+                                Bài Hát
+                            </h2>
+                        </a>
+                        <div class="playlist__header-btns flex">
+                            <button class="btn bg-second">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>TẢI LÊN</span>
+                            </button>
+                            <button class="btn bg-purple">
+                                <i class="fas fa-play"></i>
+                                <span>PHÁT TẤT CẢ</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="playlist__main">
+                        <ul class="playlist__songs flex">
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/audio_default.png" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Hẹn Em Kiếp Sau (Orinn Remix)
                                             <i class="fas fa-user-friends"></i>
                                         </a>
-                                        <span class="playlist__item-subtitle">Lã, Duy Phúc, TIB</span>
+                                        <span class="playlist__desc-subtitle">Lã, Duy Phúc, TIB</span>
                                     </div>
-                                    <span class="playlist__item-duration">03:44</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">03:44</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid active">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-1.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Yêu Từ Đâu Mà Ra (Orinn Remix)
                                             <i class="fas fa-user-friends"></i>
                                         </a>
-                                        <span class="playlist__item-subtitle">LIL ZPOET, Orinn</span>
+                                        <span class="playlist__desc-subtitle">LIL ZPOET, Orinn</span>
                                     </div>
-                                    <span class="playlist__item-duration">03:43</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">03:43</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-2.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Mỹ Nhân
                                             <i class="fas fa-user-friends"></i>
                                         </a>
-                                        <span class="playlist__item-subtitle">Đinh Đại Vũ, Orinn</span>
+                                        <span class="playlist__desc-subtitle">Đinh Đại Vũ, Orinn</span>
                                     </div>
-                                    <span class="playlist__item-duration">04:48</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">04:48</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-3.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Chỉ Là Không Cùng Nhau (Live Version)
                                         </a>
-                                        <span class="playlist__item-subtitle">Tăng Phúc, Trương Thảo Nhi</span>
+                                        <span class="playlist__desc-subtitle">Tăng Phúc, Trương Thảo Nhi</span>
                                     </div>
-                                    <span class="playlist__item-duration">03:46</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">03:46</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-4.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Còn Gì Đau Hơn Chữ Đã Từng
                                         </a>
-                                        <span class="playlist__item-subtitle">Quân A.P</span>
+                                        <span class="playlist__desc-subtitle">Quân A.P</span>
                                     </div>
-                                    <span class="playlist__item-duration">05:50</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">05:50</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-5.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Ai Là Người Thương Em
                                             <i class="fas fa-user-friends"></i>
                                         </a>
-                                        <span class="playlist__item-subtitle">Quân A.P</span>
+                                        <span class="playlist__desc-subtitle">Quân A.P</span>
                                     </div>
-                                    <span class="playlist__item-duration">05:07</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">05:07</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-6.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Em Ổn Không
                                             <i class="fas fa-user-friends"></i>
                                         </a>
-                                        <span class="playlist__item-subtitle">Trịnh Thiên Ân, ViruSs</span>
+                                        <span class="playlist__desc-subtitle">Trịnh Thiên Ân, ViruSs</span>
                                     </div>
-                                    <span class="playlist__item-duration">05:19</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">05:19</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-7.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Chẳng Thể Tìm Được Em
                                             <i class="fas fa-user-friends"></i>
                                         </a>
-                                        <span class="playlist__item-subtitle">PhucXP, Freak D</span>
+                                        <span class="playlist__desc-subtitle">PhucXP, Freak D</span>
                                     </div>
-                                    <span class="playlist__item-duration">05:48</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">05:48</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-8.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Mãi Mãi Không Phải Anh
                                             <span class="badge">ZMA</span>
                                         </a>
-                                        <span class="playlist__item-subtitle">Thanh Bình</span>
+                                        <span class="playlist__desc-subtitle">Thanh Bình</span>
                                     </div>
-                                    <span class="playlist__item-duration">04:33</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">04:33</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-9.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Kẻ Điên Tin Vào Tình Yêu
                                         </a>
-                                        <span class="playlist__item-subtitle">Lil Z</span>
+                                        <span class="playlist__desc-subtitle">Lil Z</span>
                                     </div>
-                                    <span class="playlist__item-duration">04:36</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="playlist__song grid">
+                                </div>
+                                <span class="playlist__time">04:36</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlist__song grid">
+                                <div class="playlist__info flex">
                                     <a href="#" class="playlist__img-link">
                                         <img src="images/song-10.jpg" alt="" class="playlist__item-img">
                                     </a>
-                                    <div class="playlist__item-info flex">
-                                        <a href="#" class="playlist__item-title">
+                                    <div class="playlist__desc flex">
+                                        <a href="#" class="playlist__desc-title">
                                             Bông Hoa Đẹp Nhất
                                             <span class="badge">ZMA</span>
                                         </a>
-                                        <span class="playlist__item-subtitle">Quân A.P</span>
+                                        <span class="playlist__desc-subtitle">Quân A.P</span>
                                     </div>
-                                    <span class="playlist__item-duration">05:15</span>
-                                    <div class="playlist__item-option flex">
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-heart playlist__icon-heart"></i>
-                                        </button>
-                                        <button class="playlist__item-btn">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
+                                </div>
+                                <span class="playlist__time">05:15</span>
+                                <div class="playlist__option flex">
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-heart playlist__icon-heart"></i>
+                                    </button>
+                                    <button class="playlist__option-btn">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- =================== PLAY LIST ================== -->
+                <div class="playlist__section" id="tong-quan" hidden>
+                    <div class="playlist__header flex">
+                        <a href="#" class="playlist__header-link">
+                            <h2 class="playlist__title">
+                                Playlist
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="playlist__main flex">
+                        <button class="playlist__creation">
+                            <i class="fas fa-plus"></i>
+                            <span>Tạo playlist mới</span>
+                        </button>
+                        </button>
+                        <div class="playlist__lists flex">
+                            <div class="playlist__list flex">
+                                <img src="images/audio_default.png" alt="">
+                                <span class="list__title">POP</span>
+                            </div>
+                            <div class="playlist__list flex">
+                                <img src="images/song-1.jpg" alt="">
+                                <span class="list__title">Orinn Remix</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =================== NGHỆ SĨ ================== -->
+                <div class="playlist__section" id="tong-quan" hidden>
+                    <div class="playlist__header flex">
+                        <a href="#" class="playlist__header-link">
+                            <h2 class="playlist__title">
+                                Playlist
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="playlist__main">
+                        <div class="playlist__singers grid">
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/4/a/9/1/4a91d506fc7144c7716b9d3166f2c4b6.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">Sơn Tùng MTP</span>
+                                <span class="singer__subtitle">2M quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/9/6/968012d6d0c8961f0bf2e6052449baad_1445502452.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">One Direction</span>
+                                <span class="singer__subtitle">29K quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/d/b/c/2/dbc2256e873048550e1410a7f65b51d2.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">Justin Bieber</span>
+                                <span class="singer__subtitle">117K quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/c/e/2/c/ce2cc9e3f318c71b8914108d822fd160.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">Maroon 5</span>
+                                <span class="singer__subtitle">147K quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/5/1/b/8/51b83f6216d3752b5251159c930dcb8d.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">Taylor Swift</span>
+                                <span class="singer__subtitle">177K quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/f/e/f/5/fef5e117967b0bf6de6810c46aa58784.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">Thanh Hưng</span>
+                                <span class="singer__subtitle">127K quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                            <div class="playlist__singer flex">
+                                <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/1/3/d/9/13d91c5df0cc3c5ff6536b611cd00b83.jpg"
+                                    alt="" class="singer-img">
+                                <span class="singer__title">Quân A.P</span>
+                                <span class="singer__subtitle">307K quan tâm</span>
+                                <button class="btn bg-purple">
+                                    <i class="fas fa-check singer__icon-check"></i>
+                                    <span>ĐÃ QUAN TÂM</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =================== ALBUM ================== -->
+                <div class="playlist__section" id="album" hidden>
+                    <div class="playlist__album">
+                        <div class="album-no-content flex">
+                            <i class="fas fa-compact-disc no__content-icon"></i>
+                            <span class="no__content-title">
+                                Không có Album trong thư viện nhạc cá nhân
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- =================== MV ================== -->
+                <div class="playlist__section" id="mv" hidden>
+                    <div class="playlist__header flex">
+                        <a href="#" class="playlist__header-link">
+                            <h2 class="playlist__title">
+                                MV
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="playlist__main">
+                        <div class="playlist__mv grid">
+                            <div class="playlist__video flex">
+                                <div class="video__thumbs">
+                                    <img src="https://photo-resize-zmp3.zadn.vn/w600_r300x169_jpeg/thumb_video/c/d/6/0/cd60f4bb4b7d54b7f51397ea380cbf31.jpg"
+                                        alt="" class="video__thumb">
+                                    <button class="video__play-btn">
+                                        <i class="far fa-play-circle video__play-icon"></i>
+                                    </button>
+                                    <span class="video__time">05:45</span>
+                                </div>
+                                <div class="video__desc flex">
+                                    <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/a/f/2/2/af2221f166f8f9dfac19c90007f05926.jpg"
+                                        alt="" class="singer__thumb">
+                                    <div class="video__info flex">
+                                        <h3 class="video__title">Nước Mắt Em Lau Bằng Tình Yêu Mới</h3>
+                                        <span class="video__subtitle">Da LAB, Tóc Tiên</span>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
+                            <div class="playlist__video flex">
+                                <div class="video__thumbs">
+                                    <img src="https://photo-resize-zmp3.zadn.vn/w600_r300x169_jpeg/thumb_video/a/9/a/4/a9a483073ca4e971d1de086568702e7f.jpg"
+                                        alt="" class="video__thumb">
+                                    <button class="video__play-btn">
+                                        <i class="far fa-play-circle video__play-icon"></i>
+                                    </button>
+                                    <span class="video__time">03:57</span>
+                                </div>
+                                <div class="video__desc flex">
+                                    <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/5/8/8/0/58803c87550882be56dd9743dcda9657.jpg"
+                                        alt="" class="singer__thumb">
+                                    <div class="video__info flex">
+                                        <h3 class="video__title">Simple Love</h3>
+                                        <span class="video__subtitle">Obito, Seachains, Davis</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="playlist__video flex">
+                                <div class="video__thumbs">
+                                    <img src="https://photo-resize-zmp3.zadn.vn/w600_r300x169_jpeg/thumb_video/1/4/5/5/145566cab543c1c6ec564c1d19213c67.jpg"
+                                        alt="" class="video__thumb">
+                                    <button class="video__play-btn">
+                                        <i class="far fa-play-circle video__play-icon"></i>
+                                    </button>
+                                    <span class="video__time">11:11</span>
+                                </div>
+                                <div class="video__desc flex">
+                                    <img src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/1/3/d/9/13d91c5df0cc3c5ff6536b611cd00b83.jpg"
+                                        alt="" class="singer__thumb">
+                                    <div class="video__info flex">
+                                        <h3 class="video__title">Còn Gì Đau Hơn Chữ Đã Từng</h3>
+                                        <span class="video__subtitle">Quân A.P</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =================== TẢI LÊN ================== -->
+                <div class="playlist__section" id="album">
+                    <div class="playlist__header flex">
+                        <a href="#" class="playlist__header-link">
+                            <h2 class="playlist__title">
+                                Danh Sách Tải Lên
+                            </h2>
+                        </a>
+                    </div>
+                    <div class="playlist__album">
+                        <div class="album-no-content flex">
+                            <i class="fas fa-music no__content-icon"></i>
+                            <span class="no__content-title">
+                                Không có bài hát tải lên
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -542,8 +1050,86 @@
         </section>
     </main>
     <!-- =================================== PLAY CONTROL =================================== -->
-    <section class="playcontrol">
-
+    <section class="playControl grid">
+        <div class="playControl__description flex">
+            <div class="playControl__image" style="background-image: url(images/song-1.jpg);">
+                <div class="music__icons" hidden>
+                    <div class="music__icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="music__icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <div class="music__icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="music__icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="playControl__description-content flex">
+                <span class="playControl__description-title">Yêu Từ Đâu Mà Ra (Orinn Remix)</span>
+                <span class="playControl__description-subtitle">LIL ZPOET, Orinn</span>
+            </div>
+        </div>
+        <div class="playControl__btns">
+            <button class="playlist__option-btn">
+                <i class="fas fa-heart playlist__icon-heart"></i>
+            </button>
+            <button class="playlist__option-btn">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+        </div>
+        <div class="playControl__main flex">
+            <div class="playControl__control grid">
+                <button class="playControl-btn">
+                    <i class="fas fa-random control__icon"></i>
+                </button>
+                <button class="playControl-btn">
+                    <i class="fas fa-step-backward control__icon"></i>
+                </button>
+                <button class="playControl-btn btn__main">
+                    <i class="far fa-play-circle control__icon-main"></i>
+                    <!-- <i class="far fa-pause-circle control__icon"></i> -->
+                </button>
+                <button class="playControl-btn">
+                    <i class="fas fa-step-forward control__icon"></i>
+                </button>
+                <button class="playControl-btn">
+                    <i class="fas fa-sync control__icon"></i>
+                </button>
+            </div>
+            <div class="playControl__audio flex">
+                <span class="playControl__time" id="current-time">00:00</span>
+                <div class="playControl__timebar">
+                    <span class="process__bar" style="width: 10%;"></span>
+                </div>
+                <span class="playControl__time" id="total-time">03:43</span>
+                <audio src="music/Yeu-Tu-Dau-Ma-Ra-Orinn-Remix-LIL-ZPOET-Orinn.mp3"></audio>
+            </div>
+        </div>
+        <div class="playControl__setting flex">
+            <button class="playControl__setting-btn">
+                <i class="fas fa-film controlSetting__icon"></i>
+            </button>
+            <button class="playControl__setting-btn">
+                <i class="far fa-closed-captioning controlSetting__icon"></i>
+            </button>
+            <button class="playControl__setting-btn">
+                <!-- <i class="fas fa-volume-mute controlSetting__icon"></i>
+                <i class="fas fa-volume-off controlSetting__icon"></i>
+                <i class="fas fa-volume-down controlSetting__icon"></i> -->
+                <i class="fas fa-volume-up controlSetting__icon"></i>
+            </button>
+            <div class="playControl__setting-volume">
+                <span class="current__volume" style="width: 20%;"></span>
+            </div>
+            |
+            <button class="playControl__setting-btn">
+                <i class="far fa-list-alt controlSetting__icon"></i>
+            </button>
+        </div>
     </section>
     <!-- =================================== JS =================================== -->
     <script src="js/swiper-bundle.min.js"></script>
