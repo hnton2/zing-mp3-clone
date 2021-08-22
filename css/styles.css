@@ -9,7 +9,6 @@
     --layout-bg: #130B1D;
     --second-bg: #2d1f3f;
     --second-bg-hover: #1f152c;
-    --chart-bg-img-alpha: rgba(32,19,53,0.9);
     --text-color: #dadada;
     --text-color-hover: #fdfdff;
     --second-text-color: rgb(163, 152, 204);
@@ -167,12 +166,40 @@ button {
     background: linear-gradient(to right, #753a88, #cc2b5e);
     color: var(--text-color);
 }
+/* =============================== NAVBAR ======================== */
+@keyframes spin{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate1 {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 
 /* =============================== NAVBAR ======================== */
 .header {
     top: 0;
     z-index: var(--z-fixed);
     max-height: var(--height-navbar);
+}
+
+.bg2-header {
+    background-color: rgba(23, 15, 35, 0.5);
 }
 
 .nav {
@@ -709,7 +736,7 @@ input:checked + .checkbox__slider::before {
 }
 
 .playlist__menu-item {
-    margin-right: var(--mb-1-5);
+    padding: 0.125rem var(--mb-0-75);
     cursor: pointer;
 }
 
@@ -819,6 +846,7 @@ input:checked + .checkbox__slider::before {
     align-items: center;
     width: 100%;
     margin: .125rem 0;
+    cursor: pointer;
 }
 
 .playlist__song:hover,
@@ -1075,12 +1103,12 @@ input:checked + .checkbox__slider::before {
 
 /* =============================== PLAY CONTROL ======================== */
 .playControl {
-    position: sticky;
+    position: fixed;
     bottom: 0;
     background-color: var(--layout-bg);
-    height: 100%;
-    max-height: var(--height-footer);
-    z-index: var(--z-tooltip);
+    height: var(--height-footer);
+    width: 100%;
+    z-index: var(--z-fixed);
     grid-template-columns: 4fr 1fr 8fr 4fr;
     align-items: center;
     justify-self: center;
@@ -1092,10 +1120,66 @@ input:checked + .checkbox__slider::before {
 }
 
 .playControl__image {
-    min-width: 4rem;
-    min-height: 4rem;
+    width: 4rem;
+    height: 4rem;
+    background-size: 4rem 4rem;
     border-radius: 50%;
     margin-right: var(--mb-0-5);
+}
+
+.spin-around {
+    animation: spin 10000ms linear infinite;
+}
+
+.music__icons {
+    display: none;
+    position: relative;
+}
+
+.music__icon {
+    position: absolute;
+    font-size: 1.125rem;
+    font-weight: 100;
+}
+
+.music__icon:nth-child(1) {
+    top: -1.5rem;
+    left: 1.5rem;
+    animation: animate1 7s infinite;
+}
+
+.music__icon:nth-child(2) {
+    top: .5rem;
+    left: -1rem;
+    animation: animate1 3s infinite;
+}
+
+.music__icon:nth-child(3) {
+    left: -0.75rem;
+    top: 3rem;
+    animation: animate1 2s infinite;
+}
+
+.music__icon:nth-child(4) {
+    top: 4.125rem;
+    left: 1.25rem;
+    animation: animate1 7s infinite;
+}
+
+.music__icon:nth-child(5) {
+    top: 3rem;
+    left: 3.75rem;
+    animation: animate1 2s infinite;
+}
+
+.music__icon:nth-child(6) {
+    top: .5em;
+    left: 4.25rem;
+    animation: animate1 3s infinite;
+}
+
+.music__icons.active {
+    display: block;
 }
 
 .playControl__description-content {
@@ -1161,18 +1245,49 @@ input:checked + .checkbox__slider::before {
     justify-content: space-between;
 }
 
-.playControl__timebar {
+.playControl__processBar {
     margin: 0 0.5rem;
     width: 30rem;
-    height: 0.125rem;
-    display: block;
-    background-color: var(--primary-bg);
 }
 
-.process__bar {
-    display: block;
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
     height: 0.125rem;
-    background-color: var(--yellow);
+    border-radius: 5px;
+    background-color: var(--primary-bg);
+    outline: none;
+    cursor: pointer;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: max-width .2s linear;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+    background: var(--purple-primary);
+    cursor: pointer;
+}
+
+.playControl__processBar > .slider::-webkit-slider-thumb {
+    width: .925rem;
+    height: .925rem;
+}
+
+.slider::-moz-range-thumb {
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
 }
 
 .playControl__setting {
@@ -1197,14 +1312,7 @@ input:checked + .checkbox__slider::before {
 }
 
 .playControl__setting-volume {
-    margin-left: -.75rem;
+    margin-left: -.25rem;
     height: 0.25rem;
     width: 5rem;
-    background-color: var(--second-bg);
-}
-
-.current__volume {
-    display: block;
-    height: 0.25rem;
-    background-color: var(--yellow);
 }
