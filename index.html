@@ -311,7 +311,7 @@
                 <!-- =================== TỔNG QUAN ================== -->
                 <div class="playlist__section playlist__active" id="tong-quan" data-content>
                     <div class="playlist__header flex">
-                        <a href="#" class="playlist__header-link">
+                        <a href="#" data-target="#bai-hat" class="playlist__header-link">
                             <h2 class="playlist__title">
                                 Bài Hát
                                 <i class="fas fa-chevron-right"></i>
@@ -388,8 +388,9 @@
                                 <span class="list__title">POP</span>
                             </div>
                             <div class="playlist__list flex">
-                                <img src="images/song-1.jpg" alt="">
-                                <span class="list__title">Orinn Remix</span>
+                                <img src="https://file.tinnhac.com/resize/600x-/music/2017/09/16/66072ac1c3cf9623657e-086f.jpg"
+                                    alt="">
+                                <span class="list__title">Maroon 5</span>
                             </div>
                         </div>
                     </div>
@@ -581,7 +582,7 @@
     <!-- =================================== PLAY CONTROL =================================== -->
     <section class="playControl grid">
         <div class="playControl__description flex">
-            <div id="song-disc" class="playControl__image" style="background-image: url(images/song-1.jpg);">
+            <div id="song-disc" class="playControl__image">
                 <div class="music__icons">
                     <div class="music__icon">
                         <i class="fab fa-itunes-note"></i>
@@ -618,19 +619,19 @@
         </div>
         <div class="playControl__main flex">
             <div class="playControl__control grid">
-                <button class="playControl-btn">
+                <button class="playControl-btn" id="random-button">
                     <i class="fas fa-random control__icon"></i>
                 </button>
-                <button class="playControl-btn">
+                <button class="playControl-btn" id="prev-button">
                     <i class="fas fa-step-backward control__icon"></i>
                 </button>
                 <button class="playControl-btn btn__main" id="play-button">
                     <i class="far fa-play-circle control__icon-main"></i>
                 </button>
-                <button class="playControl-btn">
+                <button class="playControl-btn" id="next-button">
                     <i class="fas fa-step-forward control__icon"></i>
                 </button>
-                <button class="playControl-btn">
+                <button class="playControl-btn" id="repeat-button">
                     <i class="fas fa-sync control__icon"></i>
                 </button>
             </div>

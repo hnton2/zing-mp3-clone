@@ -103,7 +103,12 @@ const audio = document.querySelector('#audio')
 const disc = $('#song-disc')
 const songTitle = $('#song-title')
 const songSinger = $('#song-singer')
-const playButton = $('.control__icon-main')
+const playButton = $('#play-button')
+const randomButton = $('#random-button')
+const prevButton = $('#prev-button')
+const nextButton = $('#next-button')
+const repeatButton = $('#repeat-button')
+const iconPlayButton = $('.control__icon-main')
 const iconAroundDisc = $('.music__icons')
 const processBar = $('#process-song')
 const currentTime = $('#current-time')
@@ -239,21 +244,15 @@ $(document).ready(() => {
     // ======================================== PLAY BUTTON ===========================
     playButton.click(() => {
         if (audio.paused) {
-            playButton.removeClass('fa-play-circle')
-            playButton.addClass('fa-pause-circle')
+            showIconPause()
 
-            disc.addClass('spin-around')
-            iconAroundDisc.addClass('active')
-
-            audio.play();
+            audio.play()
+            isPlaying = true
         } else {
-            playButton.addClass('fa-play-circle')
-            playButton.removeClass('fa-pause-circle')
+            showIconPlay()
 
-            disc.removeClass('spin-around')
-            iconAroundDisc.removeClass('active')
-
-            audio.pause();
+            audio.pause()
+            isPlaying = false
         }
     })
 
@@ -269,9 +268,24 @@ $(document).ready(() => {
         totalTime.html(formatTime(audio.duration))
     })
     audio.addEventListener('ended', () => {
-        audio.currentTime = 0
-        playButton.addClass('fa-play-circle')
-        playButton.removeClass('fa-pause-circle')
+        audio.pause()
+        showIconPlay()
+        processBar.val('0')
+        currentTime.html('0:00')
+
+        if (isRandom && !isRepeat) {
+            currentIndex = randomSong(currentIndex)
+        } else if (!isRepeat) {
+            currentIndex += 1
+            if (currentIndex >= songs.length) currentIndex = 0
+        }
+        currentSong(currentIndex)
+        changeActiveSong(currentIndex)
+
+        if (isPlaying) {
+            audio.play()
+            showIconPause()
+        }
     })
 
     // ======================================== CHANGE VOLUME ===========================
@@ -315,24 +329,112 @@ $(document).ready(() => {
     const songGroup = $('.playlist__song')
     songGroup.each((index, song) => {
         $(song).click(() => {
-            removeActiveSong()
-
             audio.pause()
-            playButton.addClass('fa-play-circle')
-            playButton.removeClass('fa-pause-circle')
+            showIconPlay()
             processBar.val('0')
             currentTime.html('0:00')
 
             currentIndex = Number(index)
             currentSong(currentIndex)
-            $(song).addClass('active')
+            changeActiveSong(currentIndex)
+
+            if (isPlaying) {
+                audio.play()
+                showIconPause()
+            }
         })
     })
-    const removeActiveSong = () => {
+
+    // ======================================== NEXT SONG ===========================
+    nextButton.click(() => {
+        audio.pause()
+        showIconPlay()
+        processBar.val('0')
+        currentTime.html('0:00')
+
+        if (isRandom) {
+            currentIndex = randomSong(currentIndex)
+        } else {
+            currentIndex += 1
+            if (currentIndex >= songs.length) currentIndex = 0
+        }
+        currentSong(currentIndex)
+        changeActiveSong(currentIndex)
+
+        if (isPlaying) {
+            audio.play()
+            showIconPause()
+        }
+    })
+
+    // ======================================== PREV SONG ===========================
+    prevButton.click(() => {
+        audio.pause()
+        showIconPlay()
+        processBar.val('0')
+        currentTime.html('0:00')
+
+        if (isRandom) {
+            currentIndex = randomSong(currentIndex)
+        } else {
+            currentIndex -= 1
+            if (currentIndex < 0) currentIndex = songs.length - 1
+        }
+        currentSong(currentIndex)
+        changeActiveSong(currentIndex)
+
+        if (isPlaying) {
+            audio.play()
+            showIconPause()
+        }
+    })
+
+    // ======================================== RANDOM SONG ===========================
+    randomButton.click(() => {
+        randomButton.toggleClass('active')
+        isRandom = !isRandom
+    })
+
+    // ======================================== REPEAT SONG ===========================
+    repeatButton.click(() => {
+        repeatButton.toggleClass('active')
+        isRepeat = !isRepeat
+    })
+
+    // ======================================== FUNCTION ===========================
+    const changeActiveSong = (n) => {
         songGroup.each((index, song) => {
             if ($(song).hasClass('active')) {
                 $(song).removeClass('active')
             }
+            if (n === index) {
+                $(song).addClass('active')
+            }
         })
+    }
+
+    const showIconPlay = () => {
+        iconPlayButton.addClass('fa-play-circle')
+        iconPlayButton.removeClass('fa-pause-circle')
+
+        disc.removeClass('spin-around')
+        iconAroundDisc.removeClass('active')
+    }
+
+    const showIconPause = () => {
+        iconPlayButton.removeClass('fa-play-circle')
+        iconPlayButton.addClass('fa-pause-circle')
+
+        disc.addClass('spin-around')
+        iconAroundDisc.addClass('active')
+    }
+
+    const randomSong = n => {
+        while (true) {
+            let randomIndex = Math.floor(Math.random() * songs.length)
+            if (n !== randomIndex) {
+                return randomIndex
+            }
+        }
     }
 })
