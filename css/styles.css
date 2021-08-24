@@ -190,6 +190,15 @@ button {
     }
 }
 
+@keyframes text-animation {
+    from {
+        transform: translateX(-20rem);
+    }
+    to {
+        transform: translateX(22rem);
+    }
+}
+
 
 /* =============================== NAVBAR ======================== */
 .header {
@@ -1110,18 +1119,18 @@ input:checked + .checkbox__slider::before {
     height: var(--height-footer);
     width: 100%;
     z-index: var(--z-fixed);
-    grid-template-columns: 4fr 1fr 8fr 4fr;
+    grid-template-columns: 24rem 1fr 8fr 4fr;
     align-items: center;
     justify-self: center;
+    margin-left: var(--mb-1-5);
 }
 
 .playControl__description {
     justify-content: start;
-    padding-left: 2rem;
 }
 
 .playControl__image {
-    background-size: cover;
+    display: block;
     width: 4rem;
     height: 4rem;
     background-size: 4rem 4rem;
@@ -1194,6 +1203,11 @@ input:checked + .checkbox__slider::before {
     font-size: 1rem;
     font-weight: 600;
     white-space: nowrap;
+    margin-bottom: var(--mb-0-5);
+}
+
+.playControl__description-title.text-animation {
+    animation: text-animation 8s infinite .05s;
 }
 
 .playControl__description-subtitle {

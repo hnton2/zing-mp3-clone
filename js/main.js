@@ -145,7 +145,6 @@ $(document).ready(() => {
     dropdownLink.each((index, item) => {
         $(item).click(() => {
             if (dropdownBtn.hasClass('btn__active')) {
-                console.log('object')
                 dropdownBtn.removeClass('btn__active')
                 dropdownContent.removeClass('show-nav__dropdown')
             }
@@ -419,6 +418,7 @@ $(document).ready(() => {
 
         disc.removeClass('spin-around')
         iconAroundDisc.removeClass('active')
+        songTitle.removeClass('text-animation')
     }
 
     const showIconPause = () => {
@@ -427,6 +427,7 @@ $(document).ready(() => {
 
         disc.addClass('spin-around')
         iconAroundDisc.addClass('active')
+        songTitle.addClass('text-animation')
     }
 
     const randomSong = n => {
