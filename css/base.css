@@ -1,0 +1,164 @@
+/* =============================== VARIABLE CSS ======================== */
+:root {
+    /* == COLOR == */
+    --primary-bg: #432275;
+    --layout-bg-top: #4f2194;
+    --layout-bg: #130b1d;
+    --second-bg: #2d1f3f;
+    --second-bg-hover: #1f152c;
+    --text-color: #dadada;
+    --text-color-hover: #fdfdff;
+    --second-text-color: rgb(163, 152, 204);
+    --text-black: #32323d;
+    --sidebar-bg: hsla(0, 0%, 100%, 0.05);
+    --purple-primary: #7200a1;
+    --scroll-bar-color: #23213a;
+    --scroll-thumb-color: #65606d;
+    --blue: #4a90e2;
+    --green: #1ddfb5;
+    --red: #e35050;
+    --yellow: #f8e71c;
+
+    /* == FONT AND TYPOGRAPHY == */
+    --body-font: "Inter", sans-serif;
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+
+    /* == MARGIN BOTTOM == */
+    --mb-0-25: 0.25rem;
+    --mb-0-5: 0.5rem;
+    --mb-0-75: 0.75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /* == SIZE == */
+    --height-navbar: 4rem;
+    --height-footer: 5.625rem;
+
+    /* == Z-INDEX == */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* =============================== BASE ======================== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: var(--body-font);
+    background: var(--layout-bg);
+    background: -webkit-linear-gradient(to top, var(--layout-bg-top), var(--layout-bg));
+    background: linear-gradient(to bottom, var(--layout-bg-top), var(--layout-bg));
+    overflow-y: hidden;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.section {
+    padding: 2rem 0;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.btn {
+    padding: var(--mb-0-5) var(--mb-1);
+    border-radius: 1rem;
+}
+
+.btn:hover.bg-yellow {
+    background-color: #dbce38;
+}
+
+.btn:hover.bg-second {
+    background-color: var(--second-bg-hover);
+}
+
+.btn:hover.bg-purple {
+    background-color: #5e0b81;
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-red {
+    background-color: var(--red);
+}
+
+.bg-green {
+    background-color: var(--green);
+}
+
+.bg-yellow {
+    background-color: var(--yellow);
+    color: var(--text-black);
+}
+
+.bg-second {
+    background-color: var(--second-bg);
+    color: var(--text-color);
+}
+
+.bg-purple {
+    background-color: var(--purple-primary);
+    color: var(--text-color);
+}
+
+.badge {
+    font-size: 0.5rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background: #cc2b5e;
+    background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);
+    background: linear-gradient(to right, #753a88, #cc2b5e);
+    color: var(--text-color);
+}
