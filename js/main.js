@@ -1,15 +1,7 @@
 // ======================================== GLOBAL VARIABLE ===========================
-
 const main = $(".main");
 const header = $(".header");
-const dropdownBtn = $("#dropdown-btn");
-const dropdownContent = $("#nav-dropdown");
-const dropdownLink = $(".nav__link");
-const newListModal = $(".newList__modal");
-const newListModalContainer = $(".newList__modal-content");
-const newListBtns = $(".new-playlist");
-const newListCloseBtn = $(".newList__form-close");
-const playlist = $(".playlist__songs");
+const songsList = $(".songs-list");
 const audio = document.querySelector("#audio");
 const disc = $("#song-disc");
 const songTitle = $("#song-title");
@@ -19,132 +11,176 @@ const randomButton = $("#random-button");
 const prevButton = $("#prev-button");
 const nextButton = $("#next-button");
 const repeatButton = $("#repeat-button");
-const iconPlayButton = $(".control__icon-main");
-const iconAroundDisc = $(".music__icons");
-const processBar = $("#process-song");
+const playButtonIcon = $("#play-button > i");
+const progressBar = $("#progress-bar");
+const currentBar = $("#current-bar");
 const currentTime = $("#current-time");
 const totalTime = $("#total-time");
-const volumeProcess = $("#process-volume");
-const volumeButton = $("#volume-button");
-const sliderContent = $(".swiper-wrapper");
-const openThemeBtn = $(".open-theme");
-const closeThemeBtn = $(".close-theme");
-const themeModal = $(".theme-modal");
-const themeModalContainer = $(".theme-modal .container");
 
 let currentIndex = 0;
 let isPlaying = false;
 let isRandom = false;
 let isRepeat = false;
 
-// ======================================== FUNCTION HELPER ===========================
-function formatTime(time) {
-    var min = Math.floor(time / 60);
-    var sec = Math.floor(time % 60);
-    return min + ":" + (sec < 10 ? "0" + sec : sec);
-}
-
 $(document).ready(() => {
     // ======================================== CHANGE BACKGROUND HEADER ===========================
     main.scroll(() => {
-        if (main.scrollTop() >= 10) header.addClass("bg2-header");
-        else header.removeClass("bg2-header");
+        if (main.scrollTop() >= 10) header.addClass(" is-scroll");
+        else header.removeClass(" is-scroll");
     });
 
     // ======================================== DROPDOWN MENU NAVBAR ===========================
+    const dropdownBtn = $("#dropdown-btn");
+    const dropdownContent = $("#nav-dropdown");
+    const dropdownLink = $(".nav__link");
+
     dropdownBtn.click(() => {
-        dropdownBtn.toggleClass("btn__active");
-        dropdownContent.toggleClass("show-nav__dropdown");
+        dropdownBtn.toggleClass("btn-active");
+        dropdownContent.toggleClass("active");
     });
 
     dropdownLink.each((index, item) => {
         $(item).click(() => {
-            if (dropdownBtn.hasClass("btn__active")) {
-                dropdownBtn.removeClass("btn__active");
-                dropdownContent.removeClass("show-nav__dropdown");
+            if (dropdownBtn.hasClass("btn-active")) {
+                dropdownBtn.removeClass("btn-active");
+                dropdownContent.removeClass("active");
             }
         });
     });
 
-    // ======================================== ADD NEW PLAYLIST ===========================
+    // ======================================== PLAYLIST MODAL ===========================
+    const newListModal = $(".newList__modal");
+    const newListModalContainer = $(".newList__modal .content");
+    const newListBtns = $(".new-playlist");
+    const newListCloseBtn = $(".newList__modal .btn-close");
+
     newListBtns.each((index, item) => $(item).click(() => newListModal.addClass("active")));
     newListCloseBtn.click(() => newListModal.removeClass("active"));
     newListModal.click(() => newListModal.removeClass("active"));
     newListModalContainer.click((e) => e.stopPropagation());
 
+    // ======================================== CHOOSE TAB ===========================
+    const tabs = $("[data-target]");
+    const tabPanels = $("[data-content]");
+
+    tabs.each((index, tab) => {
+        $(tab).click(() => {
+            const target = $(tab).attr("data-target");
+            tabPanels.each((index, tabContent) => $(tabContent).removeClass("active"));
+            $(target).addClass("active");
+
+            tabs.each((index, tab) => $(tab).removeClass("active"));
+            $(tab).addClass("active");
+        });
+    });
+
     // ======================================== THEME MODAL ===========================
+    const openThemeBtn = $(".open-theme");
+    const closeThemeBtn = $(".close-theme");
+    const themeModal = $(".theme-modal");
+    const themeModalContainer = $(".theme-modal .container");
+
     openThemeBtn.click(() => themeModal.addClass("active"));
     closeThemeBtn.click(() => themeModal.removeClass("active"));
     themeModal.click(() => themeModal.removeClass("active"));
     themeModalContainer.click((e) => e.stopPropagation());
 
-    // ======================================== CHOOSE MENU SECTION ===========================
-    const tabs = $("[data-target]"),
-        tabContents = $("[data-content]");
-
-    tabs.each((index, tab) => {
-        $(tab).click(() => {
-            const target = $(tab).attr("data-target");
-            tabContents.each((index, tabContent) => {
-                $(tabContent).removeClass("playlist__active");
-            });
-            $(target).addClass("playlist__active");
-
-            tabs.each((index, tab) => {
-                $(tab).removeClass("active");
-            });
-            $(tab).addClass("active");
-        });
-    });
-
-    // ======================================== RENDER LIST SONG AND SLIDERS IMAGES===========================
-    let htmlSong = "";
-    $.each(songs, (index, song) => {
-        sliderContent.append(`<img src="${song.thumb}" alt="${song.name}" class="playlist__thumb swiper-slide">`);
-
-        htmlSong += `<li class="playlist__song grid ${index === currentIndex ? "active" : ""}">
-                        <div class="playlist__info flex">
-                            <a href="#" class="playlist__img-link">
-                            <img src="${song.thumb}" alt="${song.name}" class="playlist__item-img">
-                            </a>
-                            <div class="playlist__desc flex">
-                                <a href="#" class="playlist__desc-title">
-                                ${song.name}
-                                ${song.iconStatus}
-                                </a>
-                                <span class="playlist__desc-subtitle">${song.singer}</span>
+    const themeContent = $(".theme-modal .themes");
+    let htmlTheme = "";
+    $.each(themes, (index, theme) => {
+        let xhtml = "";
+        $.each(theme.content, (index, item) => {
+            xhtml += `
+                <div class="col c-2">
+                    <div class="theme">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src=${item.thumb} alt="Theme 1">
+                            </div>
+                            <div class="card-fade"></div>
+                            <div class="card-action">
+                                <button class="apply">Áp dụng</button>
+                                <button>Xem trước</button>
                             </div>
                         </div>
-                        <span class="playlist__time">${song.duration}</span>
-                        <div class="playlist__option flex">
-                            <button class="playlist__option-btn">
-                                <i class="fas fa-heart playlist__icon-heart"></i>
-                            </button>
-                            <button class="playlist__option-btn">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </button>
+                        <p class="content">${item.title}</p>
+                    </div>
+                </div>
+            `;
+        });
+        htmlTheme += `
+            <h1 class="theme__title">${theme.name}</h1>
+            <div class="row">${xhtml}</div>
+        `;
+    });
+    themeContent.append(htmlTheme);
+
+    // ======================================== RENDER LIST SONG AND SLIDERS IMAGES ===========================
+    const songsAnimation = $(".songs-animation");
+    let htmlSong = "";
+    $.each(songs, (index, song) => {
+        songsAnimation.append(`<li class="song-animation"><img src="${song.thumb}" alt="${song.name}"></li>`);
+        htmlSong += `<li class="song ${index === currentIndex ? "active" : ""}">
+                        <div class="desc">
+                            <div class="thumb">
+                                <img src="${song.thumb}" alt="${song.name}">
+                                <div class="thumb-fade"></div>
+                                <i class="bi bi-play-fill thumb-icon"></i>
+                            </div>
+                            <div style="width: 100%">
+                                <p class="song-title">${song.name}</p>
+                                <p class="song-subtitle">${song.singer}</p>
+                            </div>
+                        </div>
+                        <span class="time md-hide sm-hide">${song.duration}</span>
+                        <div class="options">
+                            <button class="btn btn-heart"><i class="bi bi-heart-fill"></i></button>
+                            <button class="btn"><i class="bi bi-three-dots"></i></button>
                         </div>
                     </li>`;
     });
-    playlist.each((index, list) => {
+    songsList.each((index, list) => {
         $(list).append(htmlSong);
     });
+    // ====== Add animation =======
+    const thumbAnimations = $("li.song-animation");
+    let counter = 0;
+    if (thumbAnimations)
+        setInterval(() => {
+            thumbAnimations.eq(counter - 1).removeClass();
+            thumbAnimations.eq(counter - 1).addClass("song-animation third");
+            thumbAnimations.eq(counter).removeClass();
+            thumbAnimations.eq(counter).addClass("song-animation first");
+            thumbAnimations.eq(counter + 1).removeClass();
+            thumbAnimations.eq(counter + 1).addClass("song-animation second");
+            counter++;
+            if (counter === thumbAnimations.length) counter = 0;
+        }, 2000);
 
-    // ======================================== SLIDER PLAYLIST ===========================
-    let swiper = new Swiper(".swiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-    });
+    // ====================================== PLAYER CONTROL ===========================
+    const songList = $(".song");
 
-    // ======================================== CURRENT SONG ===========================
-    const currentSong = (n) => {
-        if (n >= songs.length) {
-            n -= songs.length;
-        }
+    const handlePlaySong = () => {
+        audio.play();
+        isPlaying = true;
+        playButtonIcon.removeClass("bi-play-fill");
+        playButtonIcon.addClass("bi-pause-fill");
+    };
+
+    const handlePauseSong = () => {
+        audio.pause();
+        isPlaying = false;
+        playButtonIcon.addClass("bi-play-fill");
+        playButtonIcon.removeClass("bi-pause-fill");
+    };
+
+    const handleChangeTimebar = (val) => {
+        progressBar.val(val);
+        currentBar.css("width", `${val}%`);
+    };
+
+    const setCurrentSong = (n) => {
+        if (n >= songs.length) n -= songs.length;
         let current = songs[n];
         audio.src = current.path;
         audio.load();
@@ -152,29 +188,16 @@ $(document).ready(() => {
         disc.css("background-image", `url(${current.thumb})`);
         songTitle.html(current.name);
         songSinger.html(current.singer);
+
+        songList.each((index, item) => $(item).removeClass("active"));
+        songList.eq(n).addClass("active");
     };
-    currentSong(currentIndex);
 
-    // ======================================== PLAY BUTTON ===========================
-    playButton.click(() => {
-        if (audio.paused) {
-            showIconPause();
-
-            audio.play();
-            isPlaying = true;
-        } else {
-            showIconPlay();
-
-            audio.pause();
-            isPlaying = false;
-        }
-    });
-
-    // ======================================== CONFIG AUDIO ===========================
+    // SETUP AUDIO
     audio.addEventListener("timeupdate", () => {
         if (!audio.paused) {
             const processPercent = Math.floor((audio.currentTime / audio.duration) * 100);
-            processBar.val(processPercent);
+            handleChangeTimebar(processPercent);
             currentTime.html(formatTime(audio.currentTime));
         }
     });
@@ -183,109 +206,70 @@ $(document).ready(() => {
     });
     audio.addEventListener("ended", () => {
         audio.pause();
-        showIconPlay();
-        processBar.val("0");
+        handleChangeTimebar(0);
         currentTime.html("0:00");
 
-        if (isRandom && !isRepeat) {
-            currentIndex = randomSong(currentIndex);
-        } else if (!isRepeat) {
+        if (isRandom && !isRepeat) currentIndex = randomSong(currentIndex);
+        else if (!isRepeat) {
             currentIndex += 1;
             if (currentIndex >= songs.length) currentIndex = 0;
         }
-        currentSong(currentIndex);
-        changeActiveSong(currentIndex);
+        setCurrentSong(currentIndex);
 
-        if (isPlaying) {
-            audio.play();
-            showIconPause();
-        }
+        if (isPlaying) audio.play();
     });
 
-    // ======================================== CHANGE VOLUME ===========================
-    volumeProcess.change(() => {
-        audio.volume = volumeProcess.val() / 100;
-        if (audio.volume >= 0.5) {
-            volumeButton.html('<i class="fas fa-volume-up controlSetting__icon"></i>');
-        } else if (audio.volume < 0.5 && audio.volume > 0.05) {
-            volumeButton.html('<i class="fas fa-volume-down controlSetting__icon"></i>');
-        } else if (audio.volume <= 0.05) {
-            volumeButton.html('<i class="fas fa-volume-off controlSetting__icon"></i>');
-        } else if (audio.volume === 0) {
-            volumeButton.html('<i class="fas fa-volume-mute controlSetting__icon"></i>');
-        }
-    });
-    // ======================================== CLICK BUTTON VOLUME ===========================
-    volumeButton.click(() => {
-        if (audio.volume > 0) {
-            audio.volume = 0;
-            volumeProcess.val("0");
-            volumeButton.html('<i class="fas fa-volume-mute controlSetting__icon"></i>');
-        } else {
-            audio.volume = 1;
-            volumeProcess.val("100");
-            volumeButton.html('<i class="fas fa-volume-up controlSetting__icon"></i>');
-        }
+    setCurrentSong(currentIndex);
+    // CLICK PLAY BUTTON
+    playButton.click(() => {
+        if (audio.paused) handlePlaySong();
+        else handlePauseSong();
     });
 
-    // ======================================== CHANGE TIME ===========================
-    processBar.change(() => {
+    // CHANGE PROGRESSBAR
+    progressBar.change(() => {
         audio.pause();
-
-        let current = audio.duration * (processBar.val() / 100);
+        let current = audio.duration * (progressBar.val() / 100);
+        handleChangeTimebar(0);
         audio.currentTime = current;
         currentTime.html(formatTime(current));
-
         audio.play();
     });
 
-    // ======================================== CHOOSE SONG ===========================
-    const songGroup = $(".playlist__song");
-    songGroup.each((index, song) => {
+    // SELECT SONG
+    songList.each((index, song) => {
         $(song).click(() => {
             audio.pause();
-            showIconPlay();
-            processBar.val("0");
+            handleChangeTimebar(0);
             currentTime.html("0:00");
 
-            currentIndex = Number(index);
-            currentSong(currentIndex);
-            changeActiveSong(currentIndex);
+            setCurrentSong(Number(index));
+            $(song).addClass("active");
 
-            if (isPlaying) {
-                audio.play();
-                showIconPause();
-            }
+            handlePlaySong();
         });
     });
 
-    // ======================================== NEXT SONG ===========================
+    // NEXT SONG
     nextButton.click(() => {
         audio.pause();
-        showIconPlay();
-        processBar.val("0");
+        handleChangeTimebar(0);
         currentTime.html("0:00");
 
-        if (isRandom) {
-            currentIndex = randomSong(currentIndex);
-        } else {
+        if (isRandom) currentIndex = randomSong(currentIndex);
+        else {
             currentIndex += 1;
             if (currentIndex >= songs.length) currentIndex = 0;
         }
-        currentSong(currentIndex);
-        changeActiveSong(currentIndex);
+        setCurrentSong(currentIndex);
 
-        if (isPlaying) {
-            audio.play();
-            showIconPause();
-        }
+        if (isPlaying) audio.play();
     });
 
-    // ======================================== PREV SONG ===========================
+    //  PREV SONG
     prevButton.click(() => {
         audio.pause();
-        showIconPlay();
-        processBar.val("0");
+        handleChangeTimebar(0);
         currentTime.html("0:00");
 
         if (isRandom) {
@@ -294,63 +278,52 @@ $(document).ready(() => {
             currentIndex -= 1;
             if (currentIndex < 0) currentIndex = songs.length - 1;
         }
-        currentSong(currentIndex);
-        changeActiveSong(currentIndex);
+        setCurrentSong(currentIndex);
 
-        if (isPlaying) {
-            audio.play();
-            showIconPause();
-        }
+        if (isPlaying) audio.play();
     });
 
-    // ======================================== RANDOM SONG ===========================
+    // RANDOM SONG
     randomButton.click(() => {
         randomButton.toggleClass("active");
         isRandom = !isRandom;
     });
 
-    // ======================================== REPEAT SONG ===========================
+    // REPEAT SONG
     repeatButton.click(() => {
         repeatButton.toggleClass("active");
         isRepeat = !isRepeat;
     });
 
-    // ======================================== FUNCTION ===========================
-    const changeActiveSong = (n) => {
-        songGroup.each((index, song) => {
-            if ($(song).hasClass("active")) {
-                $(song).removeClass("active");
-            }
-            if (n === index) {
-                $(song).addClass("active");
-            }
-        });
-    };
+    // VOLUME
+    const volumeProgress = $("#progress-volume");
+    const currentVolume = $("#current-volume");
+    const volumeButton = $("#volume-button");
 
-    const showIconPlay = () => {
-        iconPlayButton.addClass("fa-play-circle");
-        iconPlayButton.removeClass("fa-pause-circle");
-
-        disc.removeClass("spin-around");
-        iconAroundDisc.removeClass("active");
-        songTitle.removeClass("text-animation");
-    };
-
-    const showIconPause = () => {
-        iconPlayButton.removeClass("fa-play-circle");
-        iconPlayButton.addClass("fa-pause-circle");
-
-        disc.addClass("spin-around");
-        iconAroundDisc.addClass("active");
-        songTitle.addClass("text-animation");
-    };
-
-    const randomSong = (n) => {
-        while (true) {
-            let randomIndex = Math.floor(Math.random() * songs.length);
-            if (n !== randomIndex) {
-                return randomIndex;
-            }
+    volumeProgress.change(() => {
+        currentVolume.css("width", `${volumeProgress.val()}%`);
+        audio.volume = volumeProgress.val() / 100;
+        if (audio.volume >= 0.5) {
+            volumeButton.html('<i class="bi bi-volume-up"></i>');
+        } else if (audio.volume < 0.5 && audio.volume > 0.05) {
+            volumeButton.html('<i class="bi bi-volume-down"></i>');
+        } else if (audio.volume <= 0.05) {
+            volumeButton.html('<i class="bi bi-volume-off"></i>');
+        } else if (audio.volume === 0) {
+            volumeButton.html('<i class="bi bi-volume-mute"></i>');
         }
-    };
+    });
+    volumeButton.click(() => {
+        if (audio.volume > 0) {
+            audio.volume = 0;
+            volumeProgress.val("0");
+            currentVolume.css("width", "0%");
+            volumeButton.html('<i class="bi bi-volume-mute"></i>');
+        } else {
+            audio.volume = 1;
+            volumeProgress.val("100");
+            currentVolume.css("width", "100%");
+            volumeButton.html('<i class="bi bi-volume-up"></i>');
+        }
+    });
 });

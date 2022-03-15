@@ -1,0 +1,103 @@
+/* For mobile devices */
+@media screen and (max-width: 767px) {
+    .sm-hide {
+        display: none !important;
+    }
+
+    .header {
+        left: 0;
+        padding: 0 var(--padding-section-sm);
+    }
+
+    .nav-form .nav-form__container .nav__form-input {
+        width: 275px;
+    }
+
+    .main {
+        padding-left: 0;
+    }
+
+    .main .main-container {
+        padding: 0 var(--padding-section-sm);
+    }
+
+    .main .overview .overview-songs .songs-list {
+        width: 100%;
+    }
+
+    .playerControl .left {
+        width: 100%;
+    }
+}
+
+/* For table devices */
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .md-hide {
+        display: none !important;
+    }
+
+    .header {
+        left: var(--width-sidebar-md);
+        padding: 0 var(--padding-section-md);
+    }
+
+    .nav-form .nav-form__container .nav__form-input {
+        width: 350px;
+    }
+
+    .sidebar {
+        width: var(--width-sidebar-md);
+    }
+
+    .sidebar .logo {
+        padding: 0;
+        width: var(--width-sidebar-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar .logo .logo-img.md {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar .content .list__item .sidebar__link {
+        padding: 7px 22px;
+    }
+
+    .sidebar .content .list-2 .library .sidebar__link {
+        padding: 4px 0;
+        padding-left: 22px;
+    }
+    .sidebar .content .list-2 .library .sidebar__link > i {
+        margin: 0;
+        width: 32px;
+        height: 32px;
+    }
+
+    .main {
+        padding-left: var(--width-sidebar-md);
+    }
+
+    .main .main-container {
+        padding: 0 var(--padding-section-md);
+    }
+
+    .main .user {
+        margin: -70px calc(var(--padding-section-md) * -1) 0;
+    }
+    .main .user > .profile > .actions {
+        position: absolute;
+        top: 85px;
+        right: var(--padding-section-md);
+    }
+}
+
+/* For desktop devices */
+@media screen and (min-width: 1204px) {
+    .sidebar .logo .logo-img {
+        display: inline-block;
+    }
+}
