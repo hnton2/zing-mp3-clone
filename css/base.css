@@ -5,7 +5,6 @@
     --layout-bg-top: #4f2194;
     --layout-bg: #37075d;
     --sidebar-bg: hsla(0, 0%, 100%, 0.05);
-    --sidebar-popup-bg: #f2f2f2;
     --player-bg: #fff;
     --alpha-bg: hsla(0, 0%, 100%, 0.1);
     --scroll-thumb-bg: hsla(0, 0%, 100%, 0.3);
@@ -25,10 +24,7 @@
 
     --border-primary: hsla(0, 0%, 100%, 0.1);
     --border-secondary: hsla(0, 0%, 100%, 0.05);
-    --border-box: rgba(0, 0, 0, 0.2);
     --border-player: hsla(0, 0%, 100%, 0.1);
-    --progressbar-active-bg: #fff;
-    --progressbar-player-bg: hsla(0, 0%, 100%, 0.3);
 
     --white: #fff;
     --black: #32323d;
@@ -174,10 +170,10 @@ button {
     border-radius: 4px;
     background: linear-gradient(
         to right,
-        var(--progressbar-active-bg) 0%,
-        var(--progressbar-active-bg) 0%,
-        var(--progressbar-player-bg) 0%,
-        var(--progressbar-player-bg) 100%
+        var(--text-primary) 0%,
+        var(--text-primary) 0%,
+        var(--tab-active-bg) 0%,
+        var(--tab-active-bg) 100%
     );
     cursor: pointer;
     opacity: 0;
@@ -201,10 +197,10 @@ button {
     height: 3px;
     background: linear-gradient(
         to right,
-        var(--progressbar-active-bg) 0%,
-        var(--progressbar-active-bg) 0%,
-        var(--progressbar-player-bg) 0%,
-        var(--progressbar-player-bg) 100%
+        var(--text-primary) 0%,
+        var(--text-primary) 0%,
+        var(--tab-active-bg) 0%,
+        var(--tab-active-bg) 100%
     );
     border-radius: 4px;
     cursor: pointer;
@@ -218,7 +214,7 @@ button {
     transform: translate(0, -50%);
     height: 100%;
     border-radius: 4px;
-    background: var(--progressbar-active-bg);
+    background: var(--text-primary);
     width: 0;
 }
 

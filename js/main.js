@@ -1,4 +1,5 @@
 // ======================================== GLOBAL VARIABLE ===========================
+const app = $(".app");
 const main = $(".main");
 const header = $(".header");
 const songsList = $(".songs-list");
@@ -16,6 +17,7 @@ const progressBar = $("#progress-bar");
 const currentBar = $("#current-bar");
 const currentTime = $("#current-time");
 const totalTime = $("#total-time");
+const userBox = $("#user-box");
 
 let currentIndex = 0;
 let isPlaying = false;
@@ -79,41 +81,102 @@ $(document).ready(() => {
     const closeThemeBtn = $(".close-theme");
     const themeModal = $(".theme-modal");
     const themeModalContainer = $(".theme-modal .container");
+    const playerControl = $("#player-control");
+
+    const closeThemeModal = () => {
+        themeModal.removeClass("active");
+        const currentTheme = JSON.parse(localStorage.getItem("THEME"));
+        handleTheme(currentTheme);
+    };
 
     openThemeBtn.click(() => themeModal.addClass("active"));
-    closeThemeBtn.click(() => themeModal.removeClass("active"));
-    themeModal.click(() => themeModal.removeClass("active"));
+    closeThemeBtn.click(() => closeThemeModal());
+    themeModal.click(() => closeThemeModal());
     themeModalContainer.click((e) => e.stopPropagation());
 
     const themeContent = $(".theme-modal .themes");
     let htmlTheme = "";
-    $.each(themes, (index, theme) => {
+    $.each(themes, (index1, theme) => {
         let xhtml = "";
-        $.each(theme.content, (index, item) => {
+        $.each(theme.content, (index2, item) => {
             xhtml += `
-                <div class="col c-2">
-                    <div class="theme">
+                    <div class="theme" data-theme=${item.slug}>
                         <div class="card">
                             <div class="card-image">
                                 <img src=${item.thumb} alt="Theme 1">
                             </div>
+                            <i class="bi bi-check-circle-fill theme-check"></i>
                             <div class="card-fade"></div>
                             <div class="card-action">
-                                <button class="apply">Áp dụng</button>
-                                <button>Xem trước</button>
+                                <button class="apply" onclick="handleApplyTheme(${index1}, ${index2})">Áp dụng</button>
+                                <button onclick="handlePreviewTheme(${index1}, ${index2})">Xem trước</button>
                             </div>
                         </div>
                         <p class="content">${item.title}</p>
                     </div>
-                </div>
             `;
         });
         htmlTheme += `
             <h1 class="theme__title">${theme.name}</h1>
-            <div class="row">${xhtml}</div>
+            <div class="theme-list">${xhtml}</div>
         `;
     });
     themeContent.append(htmlTheme);
+
+    const setVariableStyle = (colors) => {
+        $(document.documentElement).css("--primary-bg", colors.primaryBg);
+        $(document.documentElement).css("--layout-bg", colors.layoutBg);
+        $(document.documentElement).css("--sidebar-bg", colors.sidebarBg);
+        $(document.documentElement).css("--player-bg", colors.playerBg);
+        $(document.documentElement).css("--player-text", colors.playerText);
+        $(document.documentElement).css("--search-text", colors.searchText);
+        $(document.documentElement).css("--purple-primary", colors.purplePrimary);
+        $(document.documentElement).css("--text-item-hover", colors.textItemHover);
+        $(document.documentElement).css("--text-primary", colors.textPrimary);
+        $(document.documentElement).css("--text-secondary", colors.textSecondary);
+        $(document.documentElement).css("--link-text-hover", colors.linkTextHover);
+        $(document.documentElement).css("--text-placeholder", colors.textPlaceholder);
+        $(document.documentElement).css("--navigation-text", colors.navigationText);
+        $(document.documentElement).css("--tab-active-bg", colors.tabActiveBg);
+    };
+
+    const handleTheme = (data) => {
+        const { colors, theme, playerTheme } = data;
+        if (theme) {
+            app.css("background-image", `url(${theme})`);
+            userBox.removeClass("blur");
+        } else {
+            app.css("background-image", "none");
+            userBox.addClass("blur");
+        }
+        if (playerTheme) playerControl.css("background-image", `url(${playerTheme})`);
+        else playerControl.css("background-image", "none");
+        setVariableStyle(colors);
+    };
+
+    const currentTheme = JSON.parse(localStorage.getItem("THEME"));
+    handleTheme(currentTheme);
+    const themeList = $(".theme");
+    themeList.each((index, item) => {
+        $(item).removeClass("active");
+        if ($(item).data("theme") == currentTheme.slug) $(item).addClass("active");
+    });
+
+    handleApplyTheme = (index1, index2) => {
+        const temp = themes[index1].content[index2];
+        localStorage.setItem("THEME", JSON.stringify(temp));
+        handleTheme(temp);
+        closeThemeModal();
+        themeList.each((index, item) => {
+            $(item).removeClass("active");
+            if ($(item).data("theme") == temp.slug) $(item).addClass("active");
+        });
+    };
+
+    handlePreviewTheme = (index1, index2) => {
+        const temp = themes[index1].content[index2];
+        handleTheme(temp);
+    };
 
     // ======================================== RENDER LIST SONG AND SLIDERS IMAGES ===========================
     const songsAnimation = $(".songs-animation");
