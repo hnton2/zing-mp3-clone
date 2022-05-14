@@ -154,7 +154,8 @@ $(document).ready(() => {
         setVariableStyle(colors);
     };
 
-    const currentTheme = JSON.parse(localStorage.getItem("THEME"));
+    let currentTheme = JSON.parse(localStorage.getItem("THEME"));
+    if (!currentTheme) currentTheme = themes[0].content[0];
     handleTheme(currentTheme);
     const themeList = $(".theme");
     themeList.each((index, item) => {
